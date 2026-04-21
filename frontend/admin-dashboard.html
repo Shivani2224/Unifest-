@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - UNIFEST</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="h-full" style="background:var(--bg1);color:var(--text)">
+    <div id="app" class="h-full w-full relative overflow-hidden flex flex-col">
+        <header class="flex items-center justify-between px-6 py-4 border-b relative z-20" style="border-color:var(--glass-border);background:rgba(0,0,0,0.2);backdrop-filter:blur(10px)">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
+                    <i data-lucide="shield" style="width:18px;height:18px;color:#fff"></i>
+                </div>
+                <span class="font-bold text-lg">Admin Dashboard</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="text-sm hidden sm:inline" style="color:var(--text-dim)" id="admin-name-display"></span>
+                <button class="btn btn-ghost text-xs" onclick="logout()">
+                    <i data-lucide="log-out" style="width:14px;height:14px"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <div class="flex flex-1 overflow-hidden relative z-10">
+            <nav class="w-20 md:w-56 p-4 border-r" style="border-color:var(--glass-border);background:rgba(0,0,0,0.1);backdrop-filter:blur(5px)">
+                <div class="nav-item active mb-2" onclick="switchAdminTab('stats',this)">
+                    <i data-lucide="bar-chart-3" style="width:18px;height:18px"></i> <span class="hidden md:inline">Overview</span>
+                </div>
+                <div class="nav-item mb-2" onclick="switchAdminTab('create',this)">
+                    <i data-lucide="plus-circle" style="width:18px;height:18px"></i> <span class="hidden md:inline">Create Event</span>
+                </div>
+                <div class="nav-item mb-2" onclick="switchAdminTab('events',this)">
+                    <i data-lucide="calendar" style="width:18px;height:18px"></i> <span class="hidden md:inline">All Events</span>
+                </div>
+                <div class="nav-item" onclick="switchAdminTab('regs',this)">
+                    <i data-lucide="users" style="width:18px;height:18px"></i> <span class="hidden md:inline">Registrations</span>
+                </div>
+            </nav>
+            <main class="flex-1 overflow-auto p-6" id="admin-content"></main>
+        </div>
+
+        <div class="orb orb1" style="z-index: 0;"></div>
+        <div class="orb orb2" style="z-index: 0;"></div>
+        <div class="toast-container" id="toasts"></div>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        initAdmin();
+    </script>
+</body>
+</html>
