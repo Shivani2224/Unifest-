@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UNIFEST Admin Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(
+          rgba(10, 15, 25, 0.75),
+          rgba(10, 15, 25, 0.8)
+        );
+        color: #ffffff;
+      }
+
+      nav {
+        width: 100%;
+        padding: 22px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(8, 12, 20, 0.88);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .logo {
+        font-size: 2rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo span {
+        font-size: 1.1rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 50px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #d7d7e8;
+        font-size: 1.1rem;
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #ffffff;
+      }
+
+      .main-card {
+        width: 84%;
+        margin: 40px auto;
+        padding: 70px 60px;
+        border-radius: 28px;
+        background: rgba(20, 25, 40, 0.68);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 800;
+        margin-bottom: 18px;
+      }
+
+      h1 span {
+        background: linear-gradient(90deg, #7c6cff, #66c2ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-size: 1.4rem;
+        color: #c3c6d8;
+        font-style: italic;
+        margin-bottom: 40px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 22px;
+        margin-bottom: 70px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 16px 34px;
+        border-radius: 18px;
+        text-decoration: none;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: 0.3s;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: linear-gradient(90deg, #7c6cff, #66c2ff);
+        color: white;
+        box-shadow: 0 10px 30px rgba(102, 194, 255, 0.2);
+      }
+
+      .btn-secondary {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        color: white;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+      }
+
+      .feature-box {
+        padding: 32px 28px;
+        border-radius: 20px;
+        background: rgba(14, 18, 32, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        text-align: center;
+      }
+
+      .feature-box h3 {
+        font-size: 1.7rem;
+        margin-bottom: 14px;
+      }
+
+      .feature-box p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #c7c9d9;
+      }
+
+      @media (max-width: 900px) {
+        nav {
+          padding: 20px 30px;
+        }
+
+        .main-card {
+          width: 92%;
+          padding: 50px 24px;
+        }
+
+        h1 {
+          font-size: 2.6rem;
+        }
+
+        .nav-links {
+          gap: 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <i data-lucide="graduation-cap"></i><span>UNIFEST</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+      </ul>
+    </nav>
+
+    <section class="main-card">
+      <h1>Welcome Admin to <span>UNIFEST</span></h1>
+      <p class="subtitle">Smart Event Control for Seamless Campus Management</p>
+
+      <div class="buttons">
+        <a href="admin-dashboard.html" class="btn btn-primary"
+          >Open Dashboard</a
+        >
+      </div>
+
+      <div class="features">
+        <div class="feature-box">
+          <h3>📋 Event Oversight</h3>
+          <p>
+            Review, approve, and monitor all student-created events from one
+            centralized space with better visibility and control.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>📊 Dashboard Analytics</h3>
+          <p>
+            Track registrations, participation trends, and event performance
+            using organized reports and real-time admin insights.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <h3>⚙ System Management</h3>
+          <p>
+            Manage users, announcements, permissions, and platform operations
+            efficiently for a smooth college event ecosystem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/api.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/student.js"></script>
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
