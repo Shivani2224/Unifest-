@@ -37,7 +37,7 @@ async function handleRegister(e) {
         password: document.getElementById('reg-pass').value,
         department: document.getElementById('reg-dept').value,
         year: document.getElementById('reg-year').value,
-        role: document.getElementById('reg-role').value
+
     };
 
     btn.disabled = true;

@@ -1,9 +1,165 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=login.html">
+  <meta charset="UTF-8" />
+  <title>UNIFEST | College Event Management</title>
+  <link rel="stylesheet" href="css/style1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
 </head>
 <body>
-    <p>Redirecting to <a href="login.html">login</a>...</p>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="brand">
+      <i data-lucide="graduation-cap"></i>
+      <span class="name">UNIFEST</span>
+    </div>
+    <nav>
+      <nav>
+      <a class="active" href="index.html">Home</a>
+      <a href="student-dashboard.html">Events</a>
+      <a href="about.html">About Us</a>
+
+    <!-- Login -->
+
+  </nav>
+      
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>Welcome to <span class="unifest">UNIFEST</span></h1>
+      <p>The Ultimate College Event Management System</p>
+
+      <div class="cta-buttons">
+        <a href="student-dashboard.html" class="primary">Explore Events</a>
+        <a href="about.html" class="secondary">Learn More →</a>
+      </div>
+
+      <!-- FEATURE CARDS -->
+      <a href="student-dashboard.html">
+      <div class="features">
+        <div class="feature-card">
+          <h3>📅 Discover Events</h3>
+          <p>Find and explore exciting events happening at your college.</p>
+        </div>
+        </a>
+
+      <a href="student-dashboard.html">
+        <div class="feature-card">
+          <h3>🗂️ Manage & Organize</h3>
+          <p>Effortlessly organize and manage all your college events.</p>
+        </div>
+      </a>
+
+      <a href="student-dashboard.html">
+        <div class="feature-card">
+          <h3>🙌 Get Involved</h3>
+          <p>Participate, engage, and be part of campus activities.</p>
+        </div>
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="events">
+    <div class="section-header">
+      <h2>Upcoming Events</h2>
+      <button class="view-all">View All →</button>
+    </div>
+
+    <div class="event-grid">
+      <a href="student-dashboard.html" class="event-card">
+      <img src="images/art.png" alt="">
+      </a>
+
+      <a href="student-dashboard.html" class="event-card">
+        <img src="images/museum.jpg" alt="">
+      </a>
+
+      <a href="student-dashboard.html" class="event-card">
+       <img src="images/coro.jpg" alt="">
+      </a>
+    </div>
+  </section>
+
+  <script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/student.js"></script>
+<script>
+  lucide.createIcons();
+</script>
+
+<footer class="footer">
+
+  <!-- TOP CTA -->
+  <div class="footer-cta">
+    <div>
+      <h2>Contact us for any queries</h2>
+      <p>We’re here to help you with anything related to events.</p>
+    </div>
+    <a href="#" class="cta-btn">Connect With Us</a>
+  </div>
+
+  <!-- MAIN FOOTER -->
+  <div class="footer-content">
+
+    <!-- BRAND -->
+    <div class="footer-col">
+      <h3>UNIFEST</h3>
+      <p>Your one-stop platform to explore and manage college events.</p>
+    </div>
+
+<!--    &lt;!&ndash; ADMINS &ndash;&gt;-->
+<!--    <div class="footer-col">-->
+<!--      <h4>Admins</h4>-->
+<!--      <p>Honnee</p>-->
+<!--      <p>Dikshita</p>-->
+<!--      <p>Ipshita</p>-->
+<!--      <p>Hiral</p>-->
+<!--    </div>-->
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col link">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="student-dashboard.html">Events</a>
+      <a href="about.html">About Us</a>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="footer-col footer-social">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank">
+          <i data-lucide="instagram"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank">
+          <i data-lucide="facebook"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <i data-lucide="linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 UNIFEST. All rights reserved.</p>
+  </div>
+
+</footer>
+  <script>
+  lucide.createIcons();
+</script>
 </body>
 </html>

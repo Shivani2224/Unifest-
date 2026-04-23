@@ -1,52 +1,321 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard - UNIFEST</title>
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - UNIFEST</title>
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- EVENTS UI STYLE -->
+  <style>
+    body{
+      min-height:100vh;
+      background:url("images/events.webp") center/cover no-repeat;
+      color:white;
+      font-family: 'Poppins', sans-serif;
+      overflow-y:auto;
+    }
+
+    .overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(119, 136, 115, 0.35);
+       box-shadow:3px 4px 5px rgba(0,0,0,0.4);
+      z-index:-1;
+    }
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      padding: 18px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(119, 136, 115, 0.8);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+
+    .nav-links a {
+      margin: 0 15px;
+      color: #dcdcdc;
+      text-decoration: none;
+      cursor:pointer;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: #A1BC98;
+    }
+
+    .login-btn {
+      padding: 9px 20px;
+      border-radius: 20px;
+      border: none;
+      background: rgba(210,220,182,0.8);
+      color: #778873;
+      cursor: pointer;
+    }
+
+    .hero{
+      text-align:center;
+      margin-top:120px;
+    }
+
+    .hero h1{
+      font-size:47px;
+      font-weight:600;
+      color:#D2DCB6;
+    }
+    .hero p{
+    color:#F1F3E0;
+    }
+    .hero span{
+      color:#778873;
+    }
+
+    .content-area{
+      padding:50px 80px;
+    }
+    /*----------------------------------------------------------------------*/
+
+  .footer{
+  margin-top:60px;
+    font-size:25px;
+  color: #778873;
+  background:#F1F3E0;
+}
+
+/* CTA SECTION */
+.footer-cta{
+  margin:0 60px;
+  transform: translateY(-30px);
+  background: rgba(119, 136, 115, 0.8);
+  padding:25px 40px;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+   box-shadow:2px 2px 5px rgba(36,36,36,0.6);
+
+}
+
+.cta-btn{
+   font-size:18px;
+  padding:10px 20px;
+  border-radius:6px;
+  text-decoration:none;
+  color:rgb(119, 136, 115);
+  background:#F1F3E0;
+  box-shadow:2px 2px 5px rgba(36,36,36,0.5);
+
+}
+
+/* MAIN GRID */
+
+.footer-content{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap:40px;
+  padding:60px;
+  color: #778873;
+  background:#F1F3E0;
+
+
+}
+
+.footer-col h3,
+.footer-col h4{
+  margin-bottom:15px;
+  color:#778873;
+  font-weight: 600;
+}
+
+.footer-col p{
+  margin:6px 0;
+  font-size:18px;
+
+}
+
+.link{
+    text-align:center;
+}
+
+.footer-col a{
+  display:block;
+  color:#778873;
+  margin:6px 0;
+  text-decoration:none;
+  font-size:16px;
+}
+
+.footer-col a:hover{
+  color:#9b5fef;
+}
+.footer-col {
+    margin-left:10px;
+}
+
+/* SOCIAL ICONS */
+.social-icons{
+  display:flex;
+  gap:10px;
+
+
+}
+
+.social-icons a{
+  background:#1e293b;
+  padding:10px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.3s;
+}
+
+.social-icons a:hover{
+
+  transform: translateY(-8px);
+}
+
+/* BOTTOM */
+.footer-bottom{
+  text-align:center;
+  padding:15px;
+  border-top:1px solid rgba(255,255,255,0.1);
+  font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .footer-cta{
+    flex-direction:column;
+    gap:15px;
+    text-align:center;
+  }
+
+  .footer-content{
+    padding:30px;
+  }
+}
+    @media(max-width:768px){
+      .content-area{
+        padding:30px;
+      }
+    }
+  </style>
 </head>
-<body class="h-full" style="background:var(--bg1);color:var(--text)">
-    <div id="app" class="h-full w-full relative overflow-hidden flex flex-col">
-        <header class="flex items-center justify-between px-6 py-4 border-b relative z-20" style="border-color:var(--glass-border);background:rgba(0,0,0,0.2);backdrop-filter:blur(10px)">
-            <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-600 flex items-center justify-center">
-                    <i data-lucide="graduation-cap" style="width:18px;height:18px;color:#fff"></i>
-                </div>
-                <span class="font-bold text-lg">College Event Hub</span>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="text-sm hidden sm:inline" style="color:var(--text-dim)" id="student-name-display"></span>
-                <button class="btn btn-ghost text-xs" onclick="logout()">
-                    <i data-lucide="log-out" style="width:14px;height:14px"></i> Logout
-                </button>
-            </div>
-        </header>
 
-        <div class="flex flex-1 overflow-hidden relative z-10">
-            <nav class="w-20 md:w-56 p-4 border-r" style="border-color:var(--glass-border);background:rgba(0,0,0,0.1);backdrop-filter:blur(5px)">
-                <div class="nav-item active mb-2" onclick="switchStudentTab('explore',this)">
-                    <i data-lucide="compass" style="width:18px;height:18px"></i> <span class="hidden md:inline">Explore Events</span>
-                </div>
-                <div class="nav-item" onclick="switchStudentTab('myregs',this)">
-                    <i data-lucide="ticket" style="width:18px;height:18px"></i> <span class="hidden md:inline">My Registrations</span>
-                </div>
-            </nav>
-            <main class="flex-1 overflow-auto p-6" id="student-content"></main>
-        </div>
+<body>
 
-        <div class="orb orb1" style="z-index: 0;"></div>
-        <div class="orb orb2" style="z-index: 0;"></div>
-        <div class="toast-container" id="toasts"></div>
+<div class="overlay"></div>
+
+<div id="app">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="flex items-center gap-3">
+      <i data-lucide="graduation-cap"></i>
+      <span class="font-bold text-lg">UNIFEST</span>
     </div>
 
-    <script src="js/api.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/student.js"></script>
-    <script>
-        initStudent();
-    </script>
+    <div class="nav-links flex items-center">
+        <a href="index.html">Home</a>
+      <!-- IMPORTANT: keep tab switching -->
+      <a class="active" onclick="switchStudentTab('explore',this)">Explore</a>
+      <a onclick="switchStudentTab('myregs',this)">My Registrations</a>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <!-- KEEP student name ID -->
+      <span id="student-name-display" class="text-sm"></span>
+
+      <!-- KEEP logout function -->
+      <button class="login-btn" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Welcome <span>Student</span></h1>
+    <p>Browse and manage your event registrations</p>
+  </section>
+
+  <!-- MAIN CONTENT (IMPORTANT: KEEP ID SAME) -->
+  <main id="student-content" class="content-area"></main>
+</div>
+
+
+<!-- KEEP ALL BACKEND SCRIPTS EXACTLY -->
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/student.js"></script>
+
+<script>
+  lucide.createIcons();
+  initStudent();
+</script>
+
+
+<footer class="footer">
+
+  <!-- TOP CTA -->
+  <div class="footer-cta">
+    <div>
+      <h2>Contact us for any queries</h2>
+      <p>We’re here to help you with anything related to events.</p>
+    </div>
+    <a href="#" class="cta-btn">Connect With Us</a>
+  </div>
+
+  <!-- MAIN FOOTER -->
+  <div class="footer-content">
+
+    <!-- BRAND -->
+    <div class="footer-col">
+      <h3>UNIFEST</h3>
+      <p>Your one-stop platform to explore and manage college events.</p>
+    </div>
+
+
+
+    <!-- QUICK LINKS -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="#">Events</a>
+      <a href="aboutus.html">About Us</a>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank">
+          <i data-lucide="instagram"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank">
+          <i data-lucide="facebook"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank">
+          <i data-lucide="linkedin"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM -->
+  <div class="footer-bottom">
+    <p>© 2026 UNIFEST. All rights reserved.</p>
+  </div>
+
+</footer>
 </body>
 </html>

@@ -54,14 +54,14 @@ async function renderExploreEvents(c) {
         html += `<div class="glass p-5 fade-up">
             <div class="flex items-start justify-between mb-3">
                 <h3 class="font-semibold text-lg">${esc(ev.name)}</h3>
-                <span class="badge" style="background:rgba(124,58,237,0.15);color:var(--accent2);white-space:nowrap">
+                <span class="badge" style="background:rgba(119, 136, 115, 0.8);color:#F1F3E0;white-space:nowrap">
                     <i data-lucide="map-pin" style="width:12px;height:12px;display:inline;vertical-align:middle"></i> ${esc(ev.venue)}
                 </span>
             </div>
-            <p class="text-sm mb-4" style="color:var(--text-dim)">${esc(ev.description)}</p>
-            ${ev.date ? `<p class="text-xs mb-3" style="color:var(--text-dim)"><i data-lucide="clock" style="width:12px;height:12px;display:inline;vertical-align:middle"></i> ${esc(ev.date)}</p>` : ''}
-            ${registered ? `<button class="btn btn-ghost w-full text-xs" disabled>Already Registered</button>`
-            : `<button class="btn btn-primary w-full text-sm" onclick="registerForEvent('${ev.id}', '${esc(ev.name)}')">Register Now</button>`}
+            <p class="text-sm mb-4" style="color:#F1F3E0)">${esc(ev.description)}</p>
+            ${ev.date ? `<p class="text-xs mb-3" style="color:#F1F3E0"><i data-lucide="clock" style="width:12px;height:12px;display:inline;vertical-align:middle"></i> ${esc(ev.date)}</p>` : ''}
+            ${registered ? `<button class="btn btn-ghost w-full text-xs" style="background-color:#F1F3E0; color:#778873;" disabled> Already Registered</button>`
+            : `<button class="btn btn-primary w-full text-sm" style="background-color:#F1F3E0; color:#778873;" onclick="registerForEvent('${ev.id}', '${esc(ev.name)}')">Register Now</button>`}
         </div>`;
     });
     html += `</div>`;
@@ -85,19 +85,19 @@ async function renderMyRegistrations(c) {
     let html = `<h2 class="text-xl font-bold mb-5">My Registrations</h2>`;
     
     if (!myRegs.length) {
-        html += `<div class="glass p-8 text-center" style="color:var(--text-dim)"><p>No registrations yet</p></div>`;
+        html += `<div class="glass p-8 text-center" style="color:#F1F3E0"><p>No registrations yet</p></div>`;
         c.innerHTML = html;
         return;
     }
 
-    html += `<div class="table-wrap glass"><table><thead><tr><th>Event</th><th>Status</th><th>Date</th></tr></thead><tbody>`;
+    html += `<div class="table-wrap glass"><table><thead style="background-color:#F1F3E0;"><tr><th style="color:#778873;">Event</th><th style="color:#778873;">Status</th><th style="color:#778873;">Date</th></tr></thead><tbody>`;
     myRegs.forEach(r => {
         const bc = r.status === 'accepted' ? 'badge-accepted' : r.status === 'rejected' ? 'badge-rejected' : 'badge-pending';
         // Note: Backend should return event_name or we can enrich it
         html += `<tr>
-            <td class="font-medium">${esc(r.event_name)}</td>
-            <td><span class="badge ${bc}">${r.status}</span></td>
-            <td style="color:var(--text-dim)">${new Date(r.created_at).toLocaleDateString()}</td>
+            <td class="font-medium" style="color:#F1F3E0;">${esc(r.event_name)}</td>
+            <td><span class="badge ${bc}" style="color:#F1F3E0;">${r.status}</span></td>
+            <td style="color:#F1F3E0;">${new Date(r.created_at).toLocaleDateString()}</td>
         </tr>`;
     });
     html += `</tbody></table></div>`;

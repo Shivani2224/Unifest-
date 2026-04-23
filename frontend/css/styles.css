@@ -13,15 +13,15 @@ html, body {
 }
 
 :root {
-    --bg1: #0b021f;
-    --bg2: #1a103d;
-    --bg3: #261854;
-    --accent: #7c3aed;
-    --accent2: #a78bfa;
-    --glass: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --text: #e2e0ff;
-    --text-dim: #8b85b1;
+    --bg1: #F1F3E0;
+    --bg2: #D2DCB6;
+    --bg3: #A1BC98;
+    --accent: #778873;
+    --accent2: #A1BC98;
+    --glass: rgba(241, 243, 224, 0.25);
+    --glass-border: rgba(119, 136, 115, 0.25);
+    --text: #F1F3E0;
+    --text-dim: #A1BC98;
     --success: #10b981;
     --danger: #ef4444;
     --warning: #f59e0b;
@@ -35,9 +35,10 @@ html, body {
 }
 
 .glass-strong {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(119, 136, 115, 0.8);
     backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow:2px 2px 5px rgba(36,36,36,0.5);
     border-radius: 16px;
 }
 
@@ -52,12 +53,12 @@ html, body {
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: #fff;
+    background: #F1F3E0;
+    color: #778873;
 }
 
 .btn-primary:hover {
-    background: #6d28d9;
+    background: #F1F3E0;
     transform: translateY(-1px);
 }
 
@@ -80,13 +81,13 @@ html, body {
 }
 
 .btn-ghost {
-    background: transparent;
-    color: var(--accent2);
+    background: #F1F3E0;
+    color: #778873;
     border: 1px solid var(--glass-border);
 }
 
 .btn-ghost:hover {
-    background: var(--glass);
+    background: #D2DCB6;
 }
 
 .btn:disabled {
@@ -96,11 +97,11 @@ html, body {
 }
 
 input, select, textarea {
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(119, 136, 115, 0.8);
     border: 1px solid var(--glass-border);
     border-radius: 10px;
     padding: 12px 16px;
-    color: var(--text);
+    color: #F1F3E0;
     font-size: 14px;
     width: 100%;
     outline: none;
@@ -113,8 +114,8 @@ input:focus, select:focus, textarea:focus {
 }
 
 select option {
-    background: var(--bg2);
-    color: var(--text);
+    background: #778873;
+    color: #F1F3E0;
 }
 
 textarea {

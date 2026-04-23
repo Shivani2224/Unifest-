@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | UNIFEST</title>
+  <!-- <link rel="stylesheet" href="css/events.css"> -->
+   <style>
+        *{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:url("images/event.png") center/cover no-repeat;
+  color:white;
+  padding-top: 80px;
+}
+
+/* overlay */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:linear-gradient(to bottom, rgba(20,10,60,0.6), rgba(0,0,0,0.8));
+  z-index:-1;
+}
+/* ------------NAVBAR-------------- */
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 18px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(20, 10, 20, 0.6);
+  backdrop-filter: blur(12px);
+  z-index: 100;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #dcdcdc;
+  text-decoration: none;
+}
+
+nav a.active,
+nav a:hover {
+  color: #9b5fef;
+}
+
+.login-btn {
+  padding: 9px 20px;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(135deg, #59b2e6, #8f34c7);
+  color: white;
+  cursor: pointer;
+}
+
+/* navbar
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+}
+
+.navbar a{
+  color:#ccc;
+  margin-left:20px;
+  text-decoration:none;
+}
+
+.navbar a.active{
+  color:#a855f7;
+} */
+
+/* hero */
+.hero{
+  text-align:center;
+  margin-top:80px;
+}
+
+.hero h1{
+  font-size:48px;
+}
+
+.hero span{
+  color:#6ee7ff;
+}
+
+.hero p{
+  color:#ccc;
+}
+
+/* events grid */
+.events-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:30px;
+  padding:50px 80px;
+}
+
+/* card */
+.event-card{
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(15px);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.3s;
+}
+
+.event-card:hover{
+  transform:translateY(-10px);
+}
+
+.event-card img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+
+}
+.event-card {
+  cursor: pointer;
+}
+
+
+.event-info{
+  padding:20px;
+}
+
+.event-info h3{
+  margin-bottom:10px;
+}
+
+.event-info p{
+  font-size:14px;
+  color:#ddd;
+}
+
+/* button */
+.event-info button{
+  margin-top:15px;
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(135deg,#55bdea,#913ddf);
+  color:white;
+  cursor:pointer;
+}
+
+/* responsive */
+@media(max-width:768px){
+  .events-container{
+    padding:30px;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+}
+.event-card{
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor:pointer;
+}
+
+.event-card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* image zoom */
+.event-card img{
+  transition: transform 0.3s;
+}
+
+.event-card:hover img{
+  transform: scale(1.05);
+}
+
+   </style>
+</head>
+<body>
+
+<!-- BACKGROUND OVERLAY -->
+<div class="overlay"></div>
+
+<header class="navbar">
+    <div class="brand">
+      <span class="logo" style="background-image: url();"><img src="images/logo.png"></span>
+      <span class="name">UNIFEST</span>
+    </div>
+    <nav>
+      <nav>
+      <a  href="index.html">Home</a>
+      <a href="#">Events</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
+
+    <!-- Login -->
+      <a id="loginLink" href="login.html" class="login-btn">Login</a>
+
+    <!-- Logout -->
+      <a id="logoutLink" href="#" class="login-btn" style="display:none;" onclick="logout(); return false;">
+      Logout
+      </a>
+  </nav>
+
+    </nav>
+  </header>
+
+
+<!-- NAVBAR
+<header class="navbar">
+  <h2>UNIFEST</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#" class="active">Events</a>
+    <a href="aboutus.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header> -->
+
+<!-- HERO TEXT -->
+<section class="hero">
+  <h1>Explore <span>Events</span></h1>
+  <p>Browse and discover upcoming college events.</p>
+</section>
+
+<!-- EVENTS GRID -->
+<section class="events-container">
+
+  <div class="event-card" onclick="openEvent('Tech Fest 2026','Auditorium','12 Feb 2026','10:00 AM','images/event.png')">
+  <img src="images/event.png">
+  <div class="event-info">
+    <h3>Tech Fest 2026</h3>
+    <p>📍 Auditorium</p>
+    <p>📅 12 Feb 2026</p>
+    <p>⏰ 10:00 AM</p>
+  </div>
+</div>
+
+  <div class="event-card" onclick="openEvent('Music night','open ground','15 Feb 2026','7:00 PM','images/event.png')">
+  <img src="images/event.png">
+  <div class="event-info">
+    <h3>Music night 2026</h3>
+    <p>📍 open ground</p>
+    <p>📅 15 Feb 2026</p>
+    <p>⏰ 7:00 PM</p>
+  </div>
+</div>
+
+  <div class="event-card" onclick="openEvent('Big Fest 2026','Hall gt','16 Feb 2026','11:00 AM','images/event.png')">
+  <img src="images/event.png">
+  <div class="event-info">
+    <h3>Big Fest 2026</h3>
+    <p>📍 Hall gt</p>
+    <p>📅 16 Feb 2026</p>
+    <p>⏰ 11:00 AM</p>
+  </div>
+</div>
+
+</section>
+
+<script src="js/events.js">
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     ------------THIS IS JS CODE--used for forcing login--------------------
+    <script>
+        //--------the line below this will be changed guys after u make a checkAuth() function for authentication
+        //-------this needs to be added in dashboard page too--------local storage code
+        function isLoggedIn(){
+        return localStorage.getItem("isLoggedIn") === "true";
+        }
+
+        if(!isLoggedIn()){
+            localStorage.setItem("redirectAfterLogin", window.location.href);
+            window.location.href = "login.html";
+        }
+  </script>
+</head>
+<body>
+<a class="active" href="index.html">Home</a>
+<a href="events.html">Events</a>
+<a href="aboutus.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+
+<a id="loginLink" href="login.html" class="login-btn">Login</a>
+
+<a id="logoutLink" href="#" class="login-btn" style="display:none;" onclick="logout(); return false;">
+  Logout
+</a>
+ <script src="js/script.js"></script>
+</body>
+</html> -->
