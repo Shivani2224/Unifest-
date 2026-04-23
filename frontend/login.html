@@ -1,41 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - UNIFEST</title>
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/shivani.css">
 </head>
-<body class="h-full" >
-    <div id="app" class="h-full w-full relative overflow-hidden flex items-center justify-center" style="background:linear-gradient(135deg,var(--bg1),var(--bg2))">
+<body>
+    <div class="auth-page">
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
-        
-        <div class="glass-strong p-8 w-full max-w-md mx-4 fade-up relative z-10">
-            <div class="text-center mb-8">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-600 to-#F1F3E0-600 flex items-center justify-center mx-auto mb-4">
-                    <i data-lucide="graduation-cap" style="width:28px;height:28px;color:#fff"></i>
+
+        <div class="auth-card glass-strong fade-up">
+            <div class="auth-head-wide">
+                <div class="icon-badge-lg">
+                    <i data-lucide="graduation-cap" style="width:28px;height:28px"></i>
                 </div>
-                <h1 class="text-2xl font-bold">College Event Hub</h1>
-                <p class="text-sm mt-1" style="color:var(--text-dim)">Sign in to continue</p>
+                <h1 class="auth-title">College Event Hub</h1>
+                <p class="auth-sub">Sign in to continue</p>
             </div>
-            
+
             <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="mb-4">
+                <div class="field">
                     <label for="login-email">Email</label>
                     <input type="email" id="login-email" placeholder="you@college.edu" required>
                 </div>
-                <div class="mb-6">
+                <div class="field-wide">
                     <label for="login-pass">Password</label>
                     <input type="password" id="login-pass" placeholder="••••••••" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-full" id="loginBtn">Sign In</button>
+                <button type="submit" class="btn btn-primary btn-block" id="loginBtn">Sign In</button>
             </form>
-            
-            <p class="text-center text-sm mt-6" style="color:var(--text-dim)">
-                Don't have an account? <a href="register.html" style="color:var(--accent2);font-weight:600">Register</a>
+
+            <p class="auth-footer">
+                Don't have an account? <a href="register.html">Register</a>
             </p>
         </div>
         <div class="toast-container" id="toasts"></div>

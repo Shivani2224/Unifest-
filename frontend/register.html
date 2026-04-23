@@ -1,38 +1,37 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - UNIFEST</title>
-    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/shivani.css">
 </head>
-<body class="h-full" style="background:var(--bg1);color:var(--text)">
-    <div id="app" class="h-full w-full relative overflow-hidden flex items-center justify-center" style="background:linear-gradient(135deg,var(--bg1),var(--bg2))">
+<body>
+    <div class="auth-page">
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
-        
-        <div class="glass-strong p-8 w-full max-w-md mx-4 fade-up relative z-10" style="max-height:90%;overflow-y:auto">
-            <div class="text-center mb-6">
-                <h1 class="text-2xl font-bold">Create Account</h1>
-                <p class="text-sm mt-1" style="color:var(--text-dim)">Join the campus community</p>
+
+        <div class="auth-card glass-strong fade-up">
+            <div class="auth-head">
+                <h1 class="auth-title">Create Account</h1>
+                <p class="auth-sub">Join the campus community</p>
             </div>
-            
+
             <form id="registerForm" onsubmit="handleRegister(event)">
-                <div class="mb-3">
+                <div class="field-tight">
                     <label for="reg-name">Full Name</label>
                     <input type="text" id="reg-name" placeholder="John Doe" required>
                 </div>
-                <div class="mb-3">
+                <div class="field-tight">
                     <label for="reg-email">Email</label>
                     <input type="email" id="reg-email" placeholder="you@college.edu" required>
                 </div>
-                <div class="mb-3">
+                <div class="field-tight">
                     <label for="reg-pass">Password</label>
                     <input type="password" id="reg-pass" placeholder="Min 6 characters" required minlength="6">
                 </div>
-                <div class="grid grid-cols-2 gap-3 mb-3">
+                <div class="field-row">
                     <div>
                         <label for="reg-dept">Department</label>
                         <select id="reg-dept" required>
@@ -56,18 +55,17 @@
                         </select>
                     </div>
                 </div>
-                <div class="mb-5">
+                <div class="field-wide">
                     <label for="reg-role">Role</label>
                     <select id="reg-role" required>
                         <option value="student">Student</option>
-
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary w-full" id="regBtn">Create Account</button>
+                <button type="submit" class="btn btn-primary btn-block" id="regBtn">Create Account</button>
             </form>
-            
-            <p class="text-center text-sm mt-5" style="color:var(--text-dim)">
-                Already registered? <a href="login.html" style="color:var(--accent2);font-weight:600">Sign In</a>
+
+            <p class="auth-footer">
+                Already registered? <a href="login.html">Sign In</a>
             </p>
         </div>
         <div class="toast-container" id="toasts"></div>
