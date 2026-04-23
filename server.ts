@@ -36,7 +36,7 @@ async function initDb() {
             department TEXT,
             year TEXT,
             role TEXT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
         );
 
         CREATE TABLE IF NOT EXISTS events (
@@ -46,7 +46,7 @@ async function initDb() {
             venue TEXT,
             date TEXT,
             created_by INTEGER,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
             FOREIGN KEY(created_by) REFERENCES users(id)
         );
 
@@ -55,7 +55,7 @@ async function initDb() {
             user_id INTEGER,
             event_id INTEGER,
             status TEXT DEFAULT 'pending',
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            created_at TEXT DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
             FOREIGN KEY(user_id) REFERENCES users(id),
             FOREIGN KEY(event_id) REFERENCES events(id)
         );

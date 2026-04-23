@@ -97,7 +97,7 @@ async function renderMyRegistrations(c) {
         html += `<tr>
             <td class="td-strong">${esc(r.event_name)}</td>
             <td><span class="badge ${bc}">${r.status}</span></td>
-            <td class="td-muted">${new Date(r.created_at).toLocaleDateString()}</td>
+            <td class="td-muted">${new Date(r.created_at.replace(' ', 'T').replace(/Z?$/, 'Z')).toLocaleDateString()}</td>
         </tr>`;
     });
     html += `</tbody></table></div>`;
